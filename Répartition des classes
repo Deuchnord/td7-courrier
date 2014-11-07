@@ -1,0 +1,12 @@
+Hanae :
+	- City
+	- Inhabitant
+	- Content
+	- TextContent
+	- Money
+
+Jérôme :
+	- Letter
+	- SimpleLetter
+	- PromissoryNote
+	- RegisteresLetter
