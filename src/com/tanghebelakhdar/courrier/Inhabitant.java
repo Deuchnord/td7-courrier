@@ -1,44 +1,30 @@
 package com.tanghebelakhdar.courrier;
 
 public class Inhabitant {
-	protected String nom;
-	protected City ville;
-	protected float soldeCompte;
 	
-	public Inhabitant(String nom,City ville, float soldeCompte)
-	{
-		this.nom=nom;
-		this.ville=ville;
-		this.soldeCompte=soldeCompte;
-	}
+	
+	private String name;
+	private City city;
+	private BankAccount account;
+
 	
 	public String getNom()
 	{
-		return this.nom;
-	}
-	public float getSoldeCompte()
-	{
-		return this.soldeCompte;
+		return this.name;
 	}
 	
-	public void credit(float montant)
+	public City getCity()
 	{
-		this.soldeCompte = this.soldeCompte + montant;
+		return this.city;
 	}
-	
-	public void debite(float montant)
+
+	public void receiveLetter(Letter<?> lettre)
 	{
-		this.soldeCompte = this.soldeCompte - montant;
+		lettre.action();
 	}
-	
-	public void receiveLetter(Letter<?> c)
+
+	public void postLetter() 
 	{
-		System.out.println(c.toString()+"reçois par"+this.nom);
-		//!!!!!
-	}
-	
-	public void sendLetter(Letter<?> c)
-	{
-		System.out.println("Envoie"+c.toString()+"de"+this.nom+"vers"+c.receiver.nom);
+		this.city.distributeLetters();
 	}
 }

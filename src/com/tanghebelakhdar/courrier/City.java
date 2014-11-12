@@ -4,37 +4,17 @@ import java.util.ArrayList;
 
 public class City {
 	
-	protected String nom;
 	protected ArrayList<Inhabitant> habitants;
-	protected PostBox boite_lettre;
-	protected Letter<?> letter;
+	protected Letter<?> letters;
 	
-	public City(String nom)
+	public void sendLetter(Letter<?> lettre)
 	{
-		this.nom=nom;
-		this.habitants = new  ArrayList<Inhabitant>();
-	}
-	
-	public void sendLetter()
-	{
-		this.boite_lettre.ajoutLettre(letter);
+		this.letters.add(lettre);
 	}
 	
 	public void distributeLetters()
 	{
-		if(this.LettersAdistrubute())
-		{
-			//!!!!!
-		}
-	}
-	/**
-	 * permet de savoir si il y'a un courrier à distrubbier
-	 */
-	public boolean LettersAdistrubute()
-	{
-		if(!this.boite_lettre.courrierAboite.isEmpty())
-			return true;
-		return false;
+		this.letters.action();
 	}
 
 }

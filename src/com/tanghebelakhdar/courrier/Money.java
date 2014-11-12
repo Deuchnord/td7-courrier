@@ -1,10 +1,10 @@
 package com.tanghebelakhdar.courrier;
 
 public class Money implements Content {
-	public int montant;
+	public float sum;
 	
-	public int getMontant()
+	public float getMoney()
 	{
-		return this.montant;
+		return this.sum;
 	}
 }

@@ -10,7 +10,7 @@ public class PromissoryNote extends Letter<Money> {
 		super(sender, receiver, somme);
 	}
 	
-	public Inhabitant getReceiver()
+	/*public Inhabitant getReceiver()
 	{
 		return this.receiver;
 	}
@@ -21,7 +21,7 @@ public class PromissoryNote extends Letter<Money> {
 	/**
 	 * permet de verser une somme au compte du destinataire
 	 * @param somme
-	 */
+	 *
 	public void viremment(float somme)
 	{
 		this.receiver.credit(somme);
@@ -31,20 +31,24 @@ public class PromissoryNote extends Letter<Money> {
 	{
 		return (1+(this.somme.getMontant() / 100));
 	}
-	 /**
-	  * pour le message de remerciement
-	  * @param msg
-	  * @return
-	  */
 	public String MessegaeRemerciement(String msg)
 	{
 		return lettre.toString();
 		
+	}*/
+
+	@Override
+	public float getCost() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	@Override
-	public String toString() {
-		return "Lettre de Change";
+	public void action() {
+		this.getReceiver().credit(somme);
+		this.getReceiver().postLetter();
+		this
+		
 	}
 
 }

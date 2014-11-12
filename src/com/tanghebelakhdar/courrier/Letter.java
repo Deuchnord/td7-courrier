@@ -1,22 +1,19 @@
 package com.tanghebelakhdar.courrier;
  
 public abstract class Letter <T extends Content> implements Content {
-	protected Inhabitant sender;
-	protected Inhabitant receiver;
-	protected float cout;
-	protected Content c;
+	private Inhabitant sender;
+	private Inhabitant receiver;
+	private Content c;
 	
 	public Letter(Inhabitant sender,Inhabitant receiver, Content c)
 	{
-		this.cout = 0;
 		this.sender=sender;
 		this.receiver=receiver;
 		this.c = c;
 	}
 
-	public abstract float getCout();
-	
-	public abstract String toString();
+	public abstract float getCost();
+	public abstract void action();
 	
 	public Inhabitant getReceiver()
 	{
@@ -30,5 +27,10 @@ public abstract class Letter <T extends Content> implements Content {
 	public Content getC()
 	{
 		return this.c;
+	}
+
+	public void add(Letter lettre)
+	{
+		//!!!
 	}
 }
