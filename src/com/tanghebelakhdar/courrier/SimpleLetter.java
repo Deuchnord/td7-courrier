@@ -1,19 +1,19 @@
 package com.tanghebelakhdar.courrier;
 
-public class SimpleLetter extends Letter<Text>{
+public class SimpleLetter extends Letter<TextContent>{
+	
+	private final float COST=1;
 		
-	public SimpleLetter(Inhabitant sender, Inhabitant receiver, Text texte) {
+	public SimpleLetter(Inhabitant sender, Inhabitant receiver, TextContent texte) {
 		super(sender, receiver, texte);
 	}
-
-	public float getCout()
-	{
-		return 1;
+	@Override
+	public float getCost() {
+		return COST;
 	}
 
 	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return "Lettre Simple";
+	public void action()
+	{
 	}
 }
