@@ -6,7 +6,7 @@ public class Simulator {
 	
 	private static int SIMPLE_LETTER = 0,
 			PROMOSORRY_NOTE = 0;
-	private static String TEXT = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut placerat diam. Ut vitae dictum arcu. Ut non lacus diam. Praesent maximus luctus ex, ac sodales urna vulputate ac. Sed eget velit blandit, fermentum nisl pulvinar, hendrerit nisl. Curabitur mauris neque, dapibus quis est suscipit, venenatis malesuada nisl. Phasellus non suscipit elit. Duis ultricies lacinia viverra. Mauris sit amet tincidunt massa. Donec auctor eu metus sit amet egestas. Morbi at scelerisque eros. Cras condimentum eleifend blandit. Nam egestas, velit dignissim maximus ultrices, neque neque pellentesque dolor, et cursus justo nibh id quam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas dictum, orci in consequat sodales, sapien orci dictum dolor, non imperdiet felis nibh sit amet lorem. Donec ultrices ut mi eu ultricies.";
+	private static TextContent TEXT = new TextContent("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut placerat diam. Ut vitae dictum arcu. Ut non lacus diam. Praesent maximus luctus ex, ac sodales urna vulputate ac. Sed eget velit blandit, fermentum nisl pulvinar, hendrerit nisl. Curabitur mauris neque, dapibus quis est suscipit, venenatis malesuada nisl. Phasellus non suscipit elit. Duis ultricies lacinia viverra. Mauris sit amet tincidunt massa. Donec auctor eu metus sit amet egestas. Morbi at scelerisque eros. Cras condimentum eleifend blandit. Nam egestas, velit dignissim maximus ultrices, neque neque pellentesque dolor, et cursus justo nibh id quam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas dictum, orci in consequat sodales, sapien orci dictum dolor, non imperdiet felis nibh sit amet lorem. Donec ultrices ut mi eu ultricies.");
 
 	/**
 	 * @param args
@@ -51,12 +51,13 @@ public class Simulator {
 	private static void sendLetter(Inhabitant sender,
 			Inhabitant receiver, int typeLetter) {
 		
-		Letter<Content> letter;
+		Letter<?> letter;
 		
 		switch(typeLetter) {
 		
 		case SIMPLE_LETTER:
 			letter = new SimpleLetter(sender, receiver, TEXT);
+			break;
 			
 			
 		}

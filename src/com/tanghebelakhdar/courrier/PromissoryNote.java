@@ -1,53 +1,36 @@
 package com.tanghebelakhdar.courrier;
 
+/**
+ * A promissory note is a letter that contains money. 
+ */
 public class PromissoryNote extends Letter<Money> {
-	
-	protected Money somme;
-	protected Remerciement lettre;
 	
 	public PromissoryNote(Inhabitant sender, Inhabitant receiver, Money somme) 
 	{
 		super(sender, receiver, somme);
 	}
 	
-	/*public Inhabitant getReceiver()
+	public float getCost()
 	{
-		return this.receiver;
-	}
-	public Inhabitant getSender()
-	{
-		return this.sender;
-	}
-	/**
-	 * permet de verser une somme au compte du destinataire
-	 * @param somme
-	 *
-	public void viremment(float somme)
-	{
-		this.receiver.credit(somme);
+		return (1+(getMoney().getSum() / 100));
 	}
 	
-	public float getCout()
+	public TextContent getThankText()
 	{
-		return (1+(this.somme.getMontant() / 100));
-	}
-	public String MessegaeRemerciement(String msg)
-	{
-		return lettre.toString();
+		return new TextContent("Thanks for the $"+getMoney().getSum()+"!");
 		
-	}*/
-
-	@Override
-	public float getCost() {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 
 	@Override
 	public void action() {
-		this.getReceiver().credit(somme);
-		this.getReceiver().postLetter();
-		this
+		this.getReceiver().credit(getMoney().getSum());
+		this.getReceiver().getCity().postLetter(new SimpleLetter(getSender(), getReceiver(), getThankText()));
+		
+	}
+	
+	private Money getMoney() {
+		
+		return (Money) getContent();
 		
 	}
 

@@ -1,16 +1,36 @@
 package com.tanghebelakhdar.courrier;
 
+/**
+ * Class for a bank account.
+ * A bank account contains a certain amount of money.
+ */
 public class BankAccount {
 
-	private float account;
+	private float amount;
 	
-	public void credit(float montant)
+	/**
+	 * Constructor
+	 * @param sumOnBankAccount the sum on the bank account at its opening.
+	 */
+	public BankAccount(float sumOnBankAccount) {
+		amount = sumOnBankAccount;
+	}
+
+	/**
+	 * Adds money on the bank account
+	 * @param amount the amount of money to add
+	 */
+	public void credit(float amount)
 	{
-		this.account = this.account + montant;
+		this.amount = this.amount + amount;
 	}
 	
-	public void debite(float montant)
+	/**
+	 * Removes money from the bank account
+	 * @param amount the amount of money to remove
+	 */
+	public void debite(float amount)
 	{
-		this.account = this.account - montant;
+		this.amount = this.amount - amount;
 	}
 }

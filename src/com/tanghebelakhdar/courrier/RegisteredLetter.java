@@ -1,22 +1,36 @@
 package com.tanghebelakhdar.courrier;
 
-public class RegisteredLetter extends Letter<Letter<?>> {
+/**
+ * A registered letter contains the letter addressed to the receiver. When it is received, it sends a message to the sender to tell him/her
+ * that the letter was well received. 
+ * @param <L> the type of the letter that was sent as registered.
+ */
+public class RegisteredLetter<L> extends Letter<Letter<?>> {
 
-	public RegisteredLetter(Inhabitant sender, Inhabitant receiver, Content c) {
-		super(sender, receiver, c);
-		// TODO Auto-generated constructor stub
+	/**
+	 * Constructor
+	 * @param sender the sender of the letter
+	 * @param receiver the receiver of the letter
+	 * @param letter the letter sent as registered
+	 */
+	public RegisteredLetter(Inhabitant sender, Inhabitant receiver, Content letter) {
+		
+		super(sender, receiver, letter);
+		
 	}
 
 	@Override
-	public float getCout() {
-		// TODO Auto-generated method stub
-		return 0;
+	public float getCost() {
+		return ((Letter<?>) getContent()).getCost() + 15;
 	}
 
 	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
+	public void action() {
+		
+		((Letter<?>) super.getContent()).action();		
+		
+		super.getSender().getCity().postLetter(new SimpleLetter(getReceiver(), getSender(), new TextContent("Message received")));
+		
 	}
 
 }
