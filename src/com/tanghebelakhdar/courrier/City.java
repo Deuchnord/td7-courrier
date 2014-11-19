@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class City {
 	
 	protected String name;
-	protected ArrayList<Inhabitant> habitants;
+	protected ArrayList<Inhabitant> inhabitants;
 	protected ArrayList<Letter<?>> letters;
 	
 	/**
@@ -20,6 +20,8 @@ public class City {
 	public City(String name) {
 		
 		this.name = name;
+		letters = new ArrayList<Letter<?>>();
+		inhabitants = new ArrayList<Inhabitant>();
 		
 	}
 
@@ -43,6 +45,14 @@ public class City {
 			i.receiveLetter(l);
 			
 		}
+		
+		letters = new ArrayList<Letter<?>>();
+	}
+	
+	public ArrayList<Letter<?>> getPostBoxContent() {
+		
+		return letters;
+		
 	}
 
 }
